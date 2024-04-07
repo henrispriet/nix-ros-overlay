@@ -1,0 +1,31 @@
+--- gazebo-11.14.0/gazebo/gui/qgv/QGVSubGraph.cpp	2024-04-08 00:33:24.729708753 +0200
++++ gazebo-11.14.0/gazebo/gui/qgv/QGVSubGraph.cpp	2024-04-08 00:33:29.321821519 +0200
+@@ -44,13 +44,13 @@
+ 
+ QGVNode *QGVSubGraph::addNode(const QString &label)
+ {
+-    Agnode_t *node = agnode(_sgraph->graph(), NULL, true);
++    Agnode_t *node = agnode(_sgraph->graph(), NULL, TRUE);
+     if (node == NULL)
+     {
+         qWarning()<<"Invalid sub node :"<<label;
+         return 0;
+     }
+-    agsubnode(_sgraph->graph(), node, true);
++    agsubnode(_sgraph->graph(), node, TRUE);
+ 
+     QGVNode *item = new QGVNode(new QGVNodePrivate(node), _scene);
+     item->setLabel(label);
+@@ -66,10 +66,10 @@
+     if (cluster)
+     {
+         sgraph = agsubg(_sgraph->graph(),
+-            ("cluster_" + _name).toLocal8Bit().data(), true);
++            ("cluster_" + _name).toLocal8Bit().data(), TRUE);
+     }
+     else
+-        sgraph = agsubg(_sgraph->graph(), _name.toLocal8Bit().data(), true);
++        sgraph = agsubg(_sgraph->graph(), _name.toLocal8Bit().data(), TRUE);
+ 
+     if (sgraph == NULL)
+     {

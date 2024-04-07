@@ -57,6 +57,8 @@ mkDerivation rec {
     ignition-fuel-tools
   ];
 
+  patches = [ ./gazebo-true.patch ];
+
   qtWrapperArgs = [
     # Let the gazebo binary see neighboring binaries.
     # It attempts to run gzclient from PATH.
